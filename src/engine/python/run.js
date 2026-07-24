@@ -59,7 +59,7 @@ async function ejecutar() {
 
     Atomics.store(interruptBuffer, 0, 0);
     
-    pyodide.globals.set("create3dPrimitive", (tipo, nombre) => crearObjeto(tipo, nombre));
+    pyodide.globals.set("create3dPrimitive", (tipo, nombre) => crearObjeto3d(tipo, nombre));
     pyodide.globals.set("move3d", (nombre, x, y, z) => objectList[nombre].position.set(x, y, z));
     pyodide.globals.set("rotate3d", (nombre, x, y, z) => objectList[nombre].rotation.set(x, y, z));
     pyodide.globals.set("scale3d", (nombre, x, y, z) => objectList[nombre].scale.set(x, y, z));
