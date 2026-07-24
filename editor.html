@@ -55,13 +55,12 @@ def update():
     <p>Game Settings...</p>
     <hr>
     <p>Name:<input id="game_name" placeholder="MyGame"></p>
-    <button onclick="guardar();"> Save Game </button>
+    <button class="btn" onclick="guardar();"> Save Game </button>
     <hr>
     <p>Another Games...</p>
     <ul id="game_list"></ul>
 
-    <button onclick=""> Export Game... </button>
-
+    <button class="btn" onclick="export();"> Export Game... </button>
   </div>
 
   <div style="display: none;" id="export_form">
@@ -70,9 +69,11 @@ def update():
     <p> Export Settings... </p>
 
     <hr>
-    <select id="export_type" name="export_type">
-      <p>Export Type: <option value="html"> HTML </option></p>
-    </select>
+    <p>Export Type: 
+      <select id="export_type" name="export_type">
+        <option value="html"> HTML </option>
+      </select>
+    </p>
 
     <p>Optional Text(loading screen): <input id="ot" placeholder="Made By You"></p>
     <p>Optional Background Color(loading screen): <input id="optionalColor" type="color"></p>
@@ -94,6 +95,7 @@ def update():
   <script src="./src/engine/code_editor/editor.js"></script>
   <script src="./src/engine/multimedia/audio/audio.js"></script>
   <script src="./src/engine/save/save.js"></script>
+  <script src="./src/export/export.js"></script>
   <script src="./src/export/html_export/html_export.js"></script>
   <script src="./src/engine/menus/more.js"></script>
 </body>

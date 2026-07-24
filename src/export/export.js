@@ -1,6 +1,6 @@
 let export_form = document.getElementById("export_form").innerHTML;
 
-function more(){
+function export(){
     Swal.fire({
         title: "Export...",
         html: export_form,
@@ -8,16 +8,16 @@ function more(){
         showCancelButton: true,
         confirmButtonText: "export",
         preConfirm: () => {
-            const game_name = document.getElementById("game_name").value;
-            const correo = document.getElementById("correo").value;
-            
-            if (!nombre || !correo) {
-                Swal.showValidationMessage("All inputs are Necessary!");
-                return false;
-            }
-            return { nombre, correo };
+
+            let export_type = document.getElementById("export_type");
+
+            return { export_type };
         }
         }).then((result) => {
-        if (result.isConfirmed) {}
+        if (result.isConfirmed) {
+            if(result.export_type == "html"){
+                exportarHTML();
+            }
+        }
     });
 }
