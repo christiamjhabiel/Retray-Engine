@@ -1,17 +1,18 @@
+let pantallaTocada = false;
+let teclaTocada = false;
+
 function pantalla_tocada() {
-    if(document.addEventListener("touchstart", function (event) {})){
-        return true;
-    } else {
-        return false;
-    }
+    return pantallaTocada;
 }
 
 function tecla_tocada(key) {
-    document.addEventListener("keydown", function(event) {
-    if (event.code === key) {
-        return true;
-    } else {
-        return false;
-    }
-    });
+    return teclaTocada === key;
 }
+
+document.addEventListener("touchstart", function () {
+    pantallaTocada = true;
+});
+
+document.addEventListener("keydown", function (event) {
+    teclaTocada = event.code;
+});
