@@ -1,7 +1,6 @@
 //
 let pyodide;
 let interruptBuffer;
-let editor;
 let running = false;
 const loader = document.getElementById('loader');
 const ltxt = document.getElementById('ltxt');
