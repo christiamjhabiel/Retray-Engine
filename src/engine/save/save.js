@@ -15,7 +15,7 @@ function cargarListaJuegos() {
     const keys = Object.keys(localStorage);
     
     keys.forEach(key_name => {
-      lista.innerHTML += `
+      list.innerHTML += `
         <li> 
           <span>${key_name}</span>
           <button class="btn" onclick="abrirJuego('${key_name}')">Open</button>
