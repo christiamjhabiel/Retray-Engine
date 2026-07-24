@@ -77,8 +77,8 @@ html {
 
 @media (max-width: 1024px) {
   #createObject {
-    width: 250px;
-    height: 180px;
+    width: 450px;
+    height: 280px;
   }
   #view3d, #view2d {
     width: 300px;
