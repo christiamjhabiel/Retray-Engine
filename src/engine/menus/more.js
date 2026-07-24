@@ -1,4 +1,4 @@
-let more_form = document.getElementById("more_form");
+let more_form = document.getElementById("more_form").innerHTML;
 
 function more(){
     Swal.fire({
