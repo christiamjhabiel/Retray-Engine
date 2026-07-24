@@ -22,7 +22,7 @@ function cargarListaJuegos() {
         <li> 
           <span>${key_name}</span>
           <button class="btn" onclick="abrirJuego('${key_name}')">Open</button>
-          <button class="btn" onclick="borrarJuego("${key_name}")">Delete</button>
+          <button class="btn" onclick="borrarJuego('${key_name}')">Delete</button>
         </li>
       `;
     });
