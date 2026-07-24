@@ -43,12 +43,20 @@ def update():
   global x
   x -= 0.1
   move("pe", x, 0, 0)
-    </textarea>
+</textarea>
   </div>
   
   <div id="loader">
     <img src="./assets/logooo.png" width="200px" height="200px">
     <p id="ltxt">cargando...</p>
+  </div>
+
+  <div id="more_form">
+    <p>Game Settings...</p>
+    <hr>
+    <p>Name:<input id="game_name" placeholder="MyGame"></p>
+    <p>Another Games...</p>
+    <ul id="game_list"></ul>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
@@ -68,5 +76,6 @@ def update():
   <script src="./src/engine/multimedia/audio/audio.js"></script>
   <script src="./src/engine/save/save.js"></script>
   <script src="./src/export/html_export/html_export.js"></script>
+  <script src="./src/engine/menus/more.js"></script>
 </body>
 </html>
