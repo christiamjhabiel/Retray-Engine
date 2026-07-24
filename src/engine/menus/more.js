@@ -1,9 +1,9 @@
-let more = document.getElementById("more_form");
+let more_form = document.getElementById("more_form");
 
 function more(){
     Swal.fire({
         title: "More...",
-        html: more,
+        html: more_form,
         focusConfirm: false,
         showCancelButton: false,
         confirmButtonText: "ok",
