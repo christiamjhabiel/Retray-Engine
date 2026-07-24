@@ -60,10 +60,6 @@ def update():
     <p>Another Games...</p>
     <ul id="game_list"></ul>
 
-    <button class="btn" onclick="export();"> Export Game... </button>
-  </div>
-
-  <div style="display: none;" id="export_form">
     <hr>
 
     <p> Export Settings... </p>
@@ -77,6 +73,8 @@ def update():
 
     <p>Optional Text(loading screen): <input id="ot" placeholder="Made By You"></p>
     <p>Optional Background Color(loading screen): <input id="optionalColor" type="color"></p>
+
+    <button class="btn" onclick="export();"> Export Game... </button>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>

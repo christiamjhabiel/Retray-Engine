@@ -30,3 +30,5 @@ function abrirJuego(name) {
   game_name.value = game.name;
   objectList = game.objects;
 }
+
+cargarListaJuegos();

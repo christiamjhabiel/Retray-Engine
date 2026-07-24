@@ -59,35 +59,35 @@ async function ejecutar() {
 
     Atomics.store(interruptBuffer, 0, 0);
     
-    pyodide.globals.set("createPrimitive", (tipo, nombre) => crearObjeto(tipo, nombre));
-    pyodide.globals.set("move", (nombre, x, y, z) => objectList[nombre].position.set(x, y, z));
-    pyodide.globals.set("rotate", (nombre, x, y, z) => objectList[nombre].rotation.set(x, y, z));
-    pyodide.globals.set("scale", (nombre, x, y, z) => objectList[nombre].scale.set(x, y, z));
+    pyodide.globals.set("create3dPrimitive", (tipo, nombre) => crearObjeto(tipo, nombre));
+    pyodide.globals.set("move3d", (nombre, x, y, z) => objectList[nombre].position.set(x, y, z));
+    pyodide.globals.set("rotate3d", (nombre, x, y, z) => objectList[nombre].rotation.set(x, y, z));
+    pyodide.globals.set("scale3d", (nombre, x, y, z) => objectList[nombre].scale.set(x, y, z));
     pyodide.globals.set("toast", (msg) => Swal.fire({ text: msg }));
     pyodide.globals.set("alert", (msg, msgt, iconn) => Swal.fire({ title: msg, text: msgt, icon: iconn }));
-    pyodide.globals.set("cam_set_free", () => controls.enabled = true)
-    pyodide.globals.set("cam_set_static", () => controls.enabled = false)
-    pyodide.globals.set("cam_set", (x, y, z) => camera.position.set(x, y, z));
-    pyodide.globals.set("cam_set_rotation", (x, y, z) => camera.rotation.set(x, y, z));
-    pyodide.globals.set("cam_third_person", (obj) => camera.lookAt(obj.position));
+    pyodide.globals.set("cam3d_set_free", () => controls.enabled = true)
+    pyodide.globals.set("cam3d_set_static", () => controls.enabled = false)
+    pyodide.globals.set("cam3d_set", (x, y, z) => camera.position.set(x, y, z));
+    pyodide.globals.set("cam3d_set_rotation", (x, y, z) => camera.rotation.set(x, y, z));
+    pyodide.globals.set("cam3d_third_person", (obj) => camera.lookAt(obj.position));
     pyodide.globals.set("drawText", (txt, x, y) => ctx.fillText(txt, x, y));
     pyodide.globals.set("clear", () => ctx.clearRect(0, 0, canvas2d.width, canvas2d.height));
     pyodide.globals.set("drawRect", (x, y, w, h) => ctx.fillRect(x, y, w, h));
     pyodide.globals.set("setColor", (color) => ctx.fillStyle = color);
     pyodide.globals.set("drawCircle", (x, y, r) => drawCircle(x, y, r));
-    pyodide.globals.set("setAmbientLightColor", (colour) => ambient_light.color = colour);
-    pyodide.globals.set("setAmbientLightIntensity", (intensityy) => ambient_light.intensity = intensityy);
+    pyodide.globals.set("setAmbientLight3dColor", (colour) => ambient_light.color = colour);
+    pyodide.globals.set("setAmbientLight3dIntensity", (intensityy) => ambient_light.intensity = intensityy);
     pyodide.globals.set(
-      "setLightIntensity", 
+      "set3dLightIntensity", 
       (light, intensityy) =>
       objectList[light].intensity = intensityy);
     pyodide.globals.set(
-      "setLightColor",
+      "set3dLightColor",
       (light, colour) =>
       objectList[light].color = colour);
     pyodide.globals.set("setFont", (font) => ctx.font = font);
-    pyodide.globals.set("showAxes", () => axis.visible = true);
-    pyodide.globals.set("hideAxes", () => axis.visible = false);
+    pyodide.globals.set("show3dAxes", () => axis.visible = true);
+    pyodide.globals.set("hide3dAxes", () => axis.visible = false);
     pyodide.globals.set("createAudio", (name, src) => createAudio(name, src));
     pyodide.globals.set("playAudio", (name) => objectList[name].play);
     pyodide.globals.set("stopAudio", (name) => objectList[name].stop);
@@ -95,7 +95,9 @@ async function ejecutar() {
     pyodide.globals.set("save", (key, value) => localStorage.setItem(key, value));
     pyodide.globals.set("load", (key) => localStorage.getItem(key));
     pyodide.globals.set("unsave", (key) => localStorage.removeItem(key));
-    pyodide.globals.set("createMesh", (name, src) => crearMesh(name, src));
+    pyodide.globals.set("createAsset3d", (name, src) => crearAsset(name, src));
+    pyodide.globals.set("screen_touched", () => pantalla_tocada());
+    pyodide.globals.set("key_down", (key) => tecla_tocada(key));
     
     await pyodide.runPythonAsync(codigo);
     

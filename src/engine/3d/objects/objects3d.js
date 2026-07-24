@@ -1,13 +1,19 @@
 //
 let objectList = {};
 
-function crearObjeto(tipo, nombre){
+function crearObjeto3d(tipo, nombre){
   if(tipo == "cube"){
     crearCubo(nombre);
   }else if(tipo == "cone"){
     crearCono(nombre);
   }else if(tipo == "directionalLight"){
     crearLuzDireccional(nombre)
+  }
+}
+
+function crearAsset3d(tipo, nombre, src){
+  if(tipo == "Mesh"){
+    crearMesh(nombre, src);
   }
 }
 
