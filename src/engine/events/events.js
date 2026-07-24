@@ -1,5 +1,5 @@
 let pantallaTocada = false;
-let teclaTocada = false;
+let teclaTocada = null;
 
 function pantalla_tocada() {
     return pantallaTocada;
@@ -15,4 +15,12 @@ document.addEventListener("touchstart", function () {
 
 document.addEventListener("keydown", function (event) {
     teclaTocada = event.code;
+});
+
+document.addEventListener("keyup", function () {
+    teclaTocada = null;
+});
+
+document.addEventListener("touchend", function () {
+    pantallaTocada = false;
 });
