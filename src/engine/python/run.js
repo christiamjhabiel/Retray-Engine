@@ -4,7 +4,7 @@ let interruptBuffer;
 let running = false;
 const loader = document.getElementById('loader');
 const ltxt = document.getElementById('ltxt');
-let game_name = document.getElementById("nombre_juego");
+let game_name = document.getElementById("game_name");
 let ot = document.getElementById("ot");
 let oc = document.getElementById("optionalColor");
 

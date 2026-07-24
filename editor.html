@@ -23,9 +23,9 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
 
-  <button onclick="ejecutar();" class="btn">Reproducir</button>
-  <button onclick="detener();" class="btn">Detener</button>
-  <button onclick="more();" class="btn">Más</button>
+  <button onclick="ejecutar();" class="btn">Play</button>
+  <button onclick="detener();" class="btn">Stop</button>
+  <button onclick="more();" class="btn">More...</button>
   
   <div style="position: relative; width: 100%; max-width: 360px; height: 250px;">
     <canvas id="view3d" width="360" height="250"></canvas>
@@ -34,15 +34,15 @@
 
   <div id="downbar">
     <textarea name="code-editor" id="code-editor" cols="30" rows="10">
-# este es un codigo de ejemplo
+# this a game example
 
-create("cube", "pepe")
+createPrimitive("cube", "pepe")
 x = 0
 
 def update():
   global x
   x -= 0.1
-  move("pe", x, 0, 0)
+  move("pepe", x, 0, 0)
 </textarea>
   </div>
   
@@ -55,8 +55,27 @@ def update():
     <p>Game Settings...</p>
     <hr>
     <p>Name:<input id="game_name" placeholder="MyGame"></p>
+    <button onclick="guardar();"> Save Game </button>
+    <hr>
     <p>Another Games...</p>
     <ul id="game_list"></ul>
+
+    <button onclick=""> Export Game... </button>
+
+  </div>
+
+  <div id="export_form">
+    <hr>
+
+    <p> Export Settings... </p>
+
+    <hr>
+    <select id="export_type" name="export_type">
+      <p>Export Type: <option value="html"> HTML </option></p>
+    </select>
+
+    <p>Optional Text(loading screen): <input id="ot" placeholder="Made By You"></p>
+    <p>Optional Background Color(loading screen): <input id="optionalColor" type="color"></p>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
