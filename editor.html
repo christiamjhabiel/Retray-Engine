@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<!-- -->
+
+<head>
+  <title>Retray Engine 1.2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  
+  <link rel="icon" type="image/png" href="./assets/logooo.png">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="./src/interface/interface.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+</head>
+<body class="bg-dark">
+  
+  <script src="https://unpkg.com/three@0.140.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.140.2/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.140.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+
+  <button onclick="ejecutar();" class="btn">Reproducir</button>
+  <button onclick="detener();" class="btn">Detener</button>
+  <button onclick="mas();" class="btn">Más</button>
+  
+  <div style="position: relative; width: 100%; max-width: 360px; height: 250px;">
+    <canvas id="view3d" width="360" height="250"></canvas>
+    <canvas id="view2d" width="360" height="250"></canvas>
+  </div>
+
+  <div id="downbar">
+    <textarea name="code-editor" id="code-editor" cols="30" rows="10">
+# este es un codigo de ejemplo
+
+create("cube", "pepe")
+x = 0
+
+def update():
+  global x
+  x -= 0.1
+  move("pe", x, 0, 0)
+    </textarea>
+  </div>
+  
+  <div id="loader">
+    <img src="./assets/logooo.png" width="200px" height="200px">
+    <p id="ltxt">cargando...</p>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/selection/active-line.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/anyword-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/python-hint.min.js"></script>
+  <script src="./src/engine/2d/physics/collision/collision.js"></script>
+  <script src="./src/engine/2d/core2d.js"></script>
+  <script src="./src/engine/3d/objects/objects3d.js"></script>
+  <script src="./src/engine/3d/core3d.js"></script>
+  <script src="./src/engine/code_editor/editor.js"></script>
+  <script src="./src/engine/multimedia/audio/audio.js"></script>
+  <script src="./src/engine/python/run.js"></script>
+  <script src="./src/engine/save/save.js"></script>
+  <script src="./src/export/html_export/html_export.js"></script>
+</body>
+</html>
