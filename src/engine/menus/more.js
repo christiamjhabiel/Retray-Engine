@@ -9,8 +9,6 @@ function more(){
         confirmButtonText: "ok",
         preConfirm: () => {}
         }).then((result) => {
-        if (result.isConfirmed) {
-            continue;
-        }
+        if (result.isConfirmed) {}
     });
 }
